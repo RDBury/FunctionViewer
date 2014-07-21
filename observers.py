@@ -16,13 +16,13 @@ class observers(object):
     def register(self, callback, topic):
         """Register a listener for topic 
         callback = callback function, function is called to notify listener
-        topic = channel identfyer
+        topic = channel identfier
         """
         self.__registered_clients__[topic].add(callback)
 
     def notify(self, topic, *args, **kw):
         """Send message to registered listeners
-        topic = channel identifyer
+        topic = channel identfier
         *args, **kw = parameters to pass to callfack function
         """
         for callback in self.__registered_clients__[topic]: #For each listener
@@ -30,6 +30,6 @@ class observers(object):
 
     def registered(self, topic):
         """Return list of listeners for a topic
-        topic = channel identifyer
+        topic = channel identfier
         """
         return self.__registered_clients__[topic]
